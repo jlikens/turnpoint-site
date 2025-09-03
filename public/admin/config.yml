@@ -1,0 +1,33 @@
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Local dev (no OAuth) — see Step 5
+local_backend: true
+
+backend:
+  name: github
+  repo: jlikens/turnpoint-site
+  branch: main
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/pages/home.md"
+        label: "Home"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "case_studies"
+    label: "Success Stories"
+    folder: "src/content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Industry", name: "industry", widget: "string" }
+      - { label: "Outcome", name: "outcome", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
